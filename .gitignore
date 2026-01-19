@@ -1,0 +1,28 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# TensorFlow / binaries
+*.pyd
+*.dll
+*.exe
+*.bin
+
+# Android / Gradle
+.gradle/
+.build/
+.idea/
+*.iml
+local.properties
+
+# Emulator & system
+.android/
+AppData/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
