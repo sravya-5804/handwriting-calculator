@@ -18,18 +18,28 @@ from calculator.core.calculator import createCalculator
 from calculator.network.models import loadClassifierModel
 
 # ---------------- DOWNLOAD MODEL ----------------
+# ---------------- DOWNLOAD MODEL ----------------
 if not os.path.exists(MODEL_DIR):
     print("📥 Downloading model from Google Drive...")
 
     FILE_ID = "16v0vM98B_NIJ88VMZAv37F4H0cg7pPty"
-    URL = f"https://drive.google.com/uc?id={FILE_ID}"
+    MODEL_ZIP = os.path.join(BASE_DIR, "recognition_model.zip")
 
-    gdown.download(URL, MODEL_ZIP, quiet=False)
+    gdown.download(
+        id=FILE_ID,
+        output=MODEL_ZIP,
+        quiet=False,
+        fuzzy=True
+    )
+
+    if not os.path.exists(MODEL_ZIP):
+        raise RuntimeError("❌ Model download failed")
 
     with zipfile.ZipFile(MODEL_ZIP, "r") as zip_ref:
         zip_ref.extractall(BASE_DIR)
 
     print("✅ Model downloaded and extracted")
+
 
 # ---------------- FLASK APP ----------------
 app = Flask(__name__)
