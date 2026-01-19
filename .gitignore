@@ -3,26 +3,13 @@ venv/
 __pycache__/
 *.pyc
 
-# TensorFlow / binaries
-*.pyd
-*.dll
-*.exe
-*.bin
+# Model files
+recognition_model/
+recognition_model.zip
 
-# Android / Gradle
-.gradle/
-.build/
-.idea/
-*.iml
-local.properties
-
-# Emulator & system
-.android/
-AppData/
+# Uploads
+uploads/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Logs
-*.log
